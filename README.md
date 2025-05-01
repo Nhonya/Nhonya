@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Richard's Portfolio</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="particle-background"></div>
+  <div class="container">
+    <!-- Navigation -->
+    <nav class="navbar">
+      <img src="images/logo.png" alt="Logo" class="logo" />
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- Intro Section -->
+    <section id="home" class="intro-section">
+      <div class="intro-text animate">
+        <p>Software Developer</p>
+        <h1>Hi, I'm <span class="highlight">Richard</span> from Tanzania</h1>
+        <a href="#contact" class="cta-button">Get in Touch</a>
+      </div>
+      <div class="profile-image animate">
+        <img src="images/background.jpg" alt="Richard's Photo" />
+      </div>
+    </section>
+  </div>
+
+  <!-- About Section -->
+  <section id="about" class="about-section">
+    <div class="container">
+      <h2 class="section-title animate">About Me</h2>
+      <div class="row">
+        <div class="about-col-1 animate">
+          <img src="images/about.png" alt="About Me" />
+        </div>
+        <div class="about-col-2">
+          <p class="animate">Passionate software developer with 3 years of experience creating innovative digital solutions.</p>
+          <p class="animate">Specializing in web development with JavaScript, React, Node.js, and Python, I transform ideas into functional applications.</p>
+          
+          <!-- Tab Navigation -->
+          <div class="tab-nav animate">
+            <button class="tab-link active" data-tab="skills">Skills</button>
+            <button class="tab-link" data-tab="experience">Experience</button>
+            <button class="tab-link" data-tab="education">Education</button>
+          </div>
+
+          <!-- Tab Content -->
+          <div class="tab-content active animate" id="skills">
+            <ul>
+              <li><span>UI/UX Design</span><br>Designing web/app interfaces</li>
+              <li><span>Web Development</span><br>Building responsive web applications</li>
+              <li><span>App Development</span><br>Creating web-based applications</li>
+            </ul>
+          </div>
+          <div class="tab-content animate" id="experience">
+            <ul>
+              <li><span>2022-Present</span><br>Freelance Web Developer</li>
+              <li><span>2021-2022</span><br>Junior Developer at Tech Co.</li>
+            </ul>
+          </div>
+          <div class="tab-content animate" id="education">
+            <ul>
+              <li><span>2020</span><br>B.Sc. Computer Science, University of Dar es Salaam</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="services-section">
+    <div class="container">
+      <h2 class="section-title animate">My Services</h2>
+      <div class="services-grid">
+        <div class="service-card animate">
+          <div class="service-icon">🌐</div>
+          <h3>Web Development</h3>
+          <p>Building responsive and scalable websites using modern technologies like React and Node.js.</p>
+        </div>
+        <div class="service-card animate">
+          <div class="service-icon">🎨</div>
+          <h3>UI/UX Design</h3>
+          <p>Creating intuitive and visually appealing interfaces for web and mobile applications.</p>
+        </div>
+        <div class="service-card animate">
+          <div class="service-icon">📱</div>
+          <h3>Mobile App Development</h3>
+          <p>Developing cross-platform mobile apps with React Native for seamless user experiences.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio Section -->
+  <section id="portfolio" class="portfolio-section">
+    <div class="container">
+      <h2 class="section-title animate">My Portfolio</h2>
+      <div class="portfolio-grid">
+        <div class="portfolio-item animate">
+          <img src="images/project1.jpg" alt="Project 1" />
+          <div class="portfolio-overlay">
+            <h3>E-Commerce Platform</h3>
+            <p>Built a full-stack e-commerce site with React and Node.js.</p>
+            <a href="#" class="portfolio-link">View Project</a>
+          </div>
+        </div>
+        <div class="portfolio-item animate">
+          <img src="images/project2.jpg" alt="Project 2" />
+          <div class="portfolio-overlay">
+            <h3>Task Management App</h3>
+            <p>Developed a mobile app for task tracking using React Native.</p>
+            <a href="#" class="portfolio-link">View Project</a>
+          </div>
+        </div>
+        <div class="portfolio-item animate">
+          <img src="images/project3.jpg" alt="Project 3" />
+          <div class="portfolio-overlay">
+            <h3>Portfolio Website</h3>
+            <p>Designed and developed a personal portfolio with HTML, CSS, and JS.</p>
+            <a href="#" class="portfolio-link">View Project</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact-section">
+    <div class="container">
+      <h2 class="section-title animate">Contact Me</h2>
+      <form class="contact-form animate">
+        <input type="text" placeholder="Your Name" required />
+        <input type="email" placeholder="Your Email" required />
+        <textarea placeholder="Your Message" required></textarea>
+        <button type="submit" class="cta-button">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Richard. All rights reserved.</p>
+    <div class="social-links">
+      <a href="#" aria-label="LinkedIn">🔗</a>
+      <a href="#" aria-label="GitHub">🐙</a>
+      <a href="#" aria-label="Twitter">🐦</a>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Tab functionality
+      const tabLinks = document.querySelectorAll('.tab-link');
+      const tabContents = document.querySelectorAll('.tab-content');
+
+      tabLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          tabLinks.forEach(l => l.classList.remove('active'));
+          tabContents.forEach(c => c.classList.remove('active'));
+
+          link.classList.add('active');
+          const tabId = link.getAttribute('data-tab');
+          document.getElementById(tabId).classList.add('active');
+        });
+      });
+
+      // Contact form submission
+      const contactForm = document.querySelector('.contact-form');
+      contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        alert('Message sent! (This is a demo - form submission not implemented)');
+        contactForm.reset();
+      });
+
+      // Animation on scroll
+      const animateElements = document.querySelectorAll('.animate');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.3 });
+
+      animateElements.forEach(el => observer.observe(el));
+
+      // Particle background
+      const particleContainer = document.querySelector('.particle-background');
+      const particleCount = 50;
+
+      for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.classList.add('particle');
+        particle.style.left = `${Math.random() * 100}vw`;
+        particle.style.animationDuration = `${Math.random() * 10 + 5}s`;
+        particle.style.animationDelay = `${Math.random() * 5}s`;
+        particleContainer.appendChild(particle);
+      }
+    });
+  </script>
+</body>
+</html>
