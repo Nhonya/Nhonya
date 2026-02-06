@@ -1210,8 +1210,7 @@
   <div class="container">
     <h1 class="sub-title">Contact Me</h1>
     <div class="contact-form">
-
-      <form id="contact-form" action="https://formspree.io/f/xlglrnvj" method="POST">
+      <form id="contact-form" action="https://formspree.io/f/mojnqvno" method="POST">
         <div class="form-group">
           <label for="name">Name *</label>
           <input
@@ -1246,13 +1245,13 @@
             placeholder="Write your message here..."
             required
             aria-required="true"
-            rows="5"
+            rows="4"
             aria-label="Your message"
           ></textarea>
         </div>
 
-        <!-- Hidden fields -->
-        <input type="hidden" name="_subject" value="New Message from Portfolio" />
+        <!-- Formspree hidden fields (honeypot removed for testing) -->
+        <input type="hidden" name="_subject" value="New Message from Richard's Portfolio" />
         <input type="hidden" name="_template" value="table" />
 
         <button class="submit-btn" type="submit" id="submit-btn" aria-label="Send message">
@@ -1260,162 +1259,153 @@
         </button>
       </form>
 
-      <!-- Status message container -->
+      <!-- Status message -->
       <div id="form-status" role="alert" aria-live="polite"></div>
-
     </div>
   </div>
 </div>
 
-  <!-- Footer -->
-  <footer>
-    <p>© 2025 Richard - All rights reserved.</p>
-  </footer>
+<!-- Footer -->
+<footer>
+  <p>© 2025 Richard - All rights reserved.</p>
+</footer>
 
-
- <script>
-/// Form submission with improved visual feedback
+<!-- JavaScript for form submission -->
+<script>
+// Simplified and reliable form submission
 document.getElementById('contact-form').addEventListener('submit', function(e) {
-e.preventDefault(); // Prevent default form submission
-const form = this;
-const statusDiv = document.getElementById('form-status');
-const submitBtn = document.getElementById('submit-btn');
-// Show loading state
-statusDiv.className = 'loading';
-statusDiv.style.display = 'block';
-statusDiv.innerHTML = '<span>Sending your message... Please wait.</span>';
-// Add sending class to button for animation
-submitBtn.classList.add('sending');
-submitBtn.disabled = true;
-fetch(form.action, {
-method: 'POST',
-body: new FormData(form),
-headers: {
-'Accept': 'application/json'
+  e.preventDefault();
+
+  const form = this;
+  const status = document.getElementById('form-status');
+  const btn = document.getElementById('submit-btn');
+
+  // Reset status
+  status.className = '';
+  status.style.display = 'none';
+
+  // Loading state
+  btn.disabled = true;
+  btn.innerHTML = 'Sending...';
+  status.className = 'loading';
+  status.innerHTML = 'Sending your message...';
+  status.style.display = 'block';
+
+  fetch(form.action, {
+    method: 'POST',
+    body: new FormData(form),
+    headers: {
+      'Accept': 'application/json'
     }
   })
   .then(response => {
-if (response.ok) {
-// Success state
-statusDiv.className = 'success';
-statusDiv.innerHTML = 'Thank you! Your message has been sent successfully.<br>I will get back to you as soon as possible';
-form.reset(); // Clear form
-// Auto-hide success message after 5 seconds
-setTimeout(() => {
-statusDiv.style.display = 'none';
+    console.log('Response status:', response.status); // ← check this in console
+
+    if (response.ok) {
+      status.className = 'success';
+      status.innerHTML = 'You are  Message has been sent successfully!<br>I will reply soon.';
+      form.reset();
+      setTimeout(() => {
+        status.style.display = 'none';
       }, 5000);
     } else {
-throw new Error('Submission failed – please try again.');
+      return response.text().then(text => {
+        throw new Error(`Server error: ${response.status} - ${text || 'Unknown error'}`);
+      });
     }
   })
   .catch(error => {
-// Error state
-statusDiv.className = 'error';
-statusDiv.innerHTML = 'Error: ' + error.message + '<br>Please check your internet connection and try again.';
+    console.error('Submission error:', error); // ← important for debugging
+    status.className = 'error';
+    status.innerHTML = '❌ ' + (error.message || 'Something went wrong. Please try again or email me directly.');
   })
   .finally(() => {
-// Restore button to normal state
-submitBtn.classList.remove('sending');
-submitBtn.disabled = false;
-submitBtn.textContent = 'Send Message';
+    btn.disabled = false;
+    btn.innerHTML = 'Send Message';
   });
 });
-// Add input focus effects
-const inputs = document.querySelectorAll('#contact-form input, #contact-form textarea');
-inputs.forEach(input => {
-input.addEventListener('focus', function() {
-this.parentElement.classList.add('focused');
-  });
-input.addEventListener('blur', function() {
-if (!this.value) {
-this.parentElement.classList.remove('focused');
+
+// Real-time input validation styling
+document.querySelectorAll('#contact-form input, #contact-form textarea').forEach(input => {
+  input.addEventListener('input', function() {
+    if (this.value === '') {
+      this.style.borderColor = '#ced4da'; // neutral
+    } else if (this.checkValidity()) {
+      this.style.borderColor = '#28a745'; // green = valid
+    } else {
+      this.style.borderColor = '#dc3545'; // red = invalid
     }
   });
 });
-// Toggle Navigation Menu
-const hamburger = document.querySelector('.hamburger');
-const navLinks = document.querySelector('.nav-links');
-hamburger.addEventListener('click', () => {
-const isExpanded = navLinks.classList.toggle('active');
-hamburger.setAttribute('aria-expanded', isExpanded);
-hamburger.textContent = isExpanded ? '✕' : '☰';
-    });
-// Smooth Scroll for Navigation Links
-document.querySelectorAll('.nav-links a').forEach(anchor => {
-anchor.addEventListener('click', function(e) {
-e.preventDefault();
-const targetId = this.getAttribute('href');
-const targetElement = document.querySelector(targetId);
-if (targetElement) {
-targetElement.scrollIntoView({ behavior: 'smooth' });
-// Close mobile menu after clicking a link
-if (navLinks.classList.contains('active')) {
-navLinks.classList.remove('active');
-hamburger.setAttribute('aria-expanded', 'false');
-hamburger.textContent = '☰';
-          }
-        }
-      });
-    });
-// Tab Functionality with Accessibility
+
+  // Focus effect (if you have .focused class in CSS)
+  input.addEventListener('focus', () => input.parentElement.classList.add('focused'));
+  input.addEventListener('blur', () => {
+    if (!input.value) input.parentElement.classList.remove('focused');
+  });
+
+// Tab Functionality (unchanged - keep this as is)
 function openTab(tabName) {
-const tabContents = document.getElementsByClassName('tab-content');
-const tabLinks = document.getElementsByClassName('tab-links');
-for (let content of tabContents) {
-content.classList.remove('active');
-content.setAttribute('aria-hidden', 'true');
-      }
-for (let link of tabLinks) {
-link.classList.remove('active');
-link.setAttribute('aria-selected', 'false');
-      }
-const activeContent = document.getElementById(tabName);
-activeContent.classList.add('active');
-activeContent.setAttribute('aria-hidden', 'false');
-const activeLink = document.querySelector(`.tab-links[onclick="openTab('${tabName}')"]`);
-activeLink.classList.add('active');
-activeLink.setAttribute('aria-selected', 'true');
-    }
-// Enable keyboard navigation for tabs
+  const tabContents = document.getElementsByClassName('tab-content');
+  const tabLinks = document.getElementsByClassName('tab-links');
+  for (let content of tabContents) {
+    content.classList.remove('active');
+    content.setAttribute('aria-hidden', 'true');
+  }
+  for (let link of tabLinks) {
+    link.classList.remove('active');
+    link.setAttribute('aria-selected', 'false');
+  }
+  const activeContent = document.getElementById(tabName);
+  activeContent.classList.add('active');
+  activeContent.setAttribute('aria-hidden', 'false');
+  const activeLink = document.querySelector(`.tab-links[onclick="openTab('${tabName}')"]`);
+  activeLink.classList.add('active');
+  activeLink.setAttribute('aria-selected', 'true');
+}
+
+// Keyboard support for tabs
 document.querySelectorAll('.tab-links').forEach(tab => {
-tab.addEventListener('keydown', (e) => {
-if (e.key === 'Enter' || e.key === ' ') {
-e.preventDefault();
-const tabName = tab.getAttribute('onclick').match(/'([^']+)'/)[1];
-openTab(tabName);
-        }
-      });
-    });
+  tab.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      const tabName = tab.getAttribute('onclick').match(/'([^']+)'/)[1];
+      openTab(tabName);
+    }
+  });
+});
 </script>
-<!-- Font Awesome for icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
-<!-- Particles.js (Optional) -->
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<!-- Particles.js (keep if you want background effect) -->
 <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 <script>
-// Optimized Particle Effect for Responsive Screens
-const particleConfig = {
-particles: {
-number: { value: window.innerWidth < 480 ? 30 : 50, density: { enable: true, value_area: 800 } },
-color: { value: '#3498db' },
-shape: { type: 'circle' },
-opacity: { value: 0.5, random: true },
-size: { value: 3, random: true },
-line_linked: { enable: true, distance: 150, color: '#3498db', opacity: 0.4, width: 1 },
-move: { enable: true, speed: 2, direction: 'none', random: false }
-      },
-interactivity: {
-detect_on: 'canvas',
-events: { onhover: { enable: true, mode: 'repulse' }, onclick: { enable: true, mode: 'push' } },
-modes: { repulse: { distance: 100 }, push: { particles_nb: 4 } }
-      },
-retina_detect: true
-    };
-particlesJS('particles-js', particleConfig);
-// Adjust particle count on window resize
-window.addEventListener('resize', () => {
-particleConfig.particles.number.value = window.innerWidth < 480 ? 30 : 50;
-particlesJS('particles-js', particleConfig);
-    });
+  // Your existing particles config (unchanged)
+  const particleConfig = {
+    particles: {
+      number: { value: window.innerWidth < 480 ? 30 : 50, density: { enable: true, value_area: 800 } },
+      color: { value: '#3498db' },
+      shape: { type: 'circle' },
+      opacity: { value: 0.5, random: true },
+      size: { value: 3, random: true },
+      line_linked: { enable: true, distance: 150, color: '#3498db', opacity: 0.4, width: 1 },
+      move: { enable: true, speed: 2, direction: 'none', random: false }
+    },
+    interactivity: {
+      detect_on: 'canvas',
+      events: { onhover: { enable: true, mode: 'repulse' }, onclick: { enable: true, mode: 'push' } },
+      modes: { repulse: { distance: 100 }, push: { particles_nb: 4 } }
+    },
+    retina_detect: true
+  };
+  particlesJS('particles-js', particleConfig);
+
+  window.addEventListener('resize', () => {
+    particleConfig.particles.number.value = window.innerWidth < 480 ? 30 : 50;
+    particlesJS('particles-js', particleConfig);
+  });
 </script>
 </body>
 </html>
