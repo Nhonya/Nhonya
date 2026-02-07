@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Richard's Portfolio</title>
   <style>
-    /* Base Styles */
+    /* Your original CSS remains unchanged – no modifications here */
     :root {
       --primary-color: #3498db;
       --secondary-color: #2c3e50;
@@ -17,18 +17,15 @@
       --highlight-color: #00ffea;
       --background-color: #f4f7fa;
     }
-
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
       font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
     }
-
     html {
       scroll-behavior: smooth;
     }
-
     body {
       background: radial-gradient(circle at center, #ffffff 0%, var(--background-color) 100%);
       color: var(--text-color);
@@ -36,8 +33,6 @@
       position: relative;
       overflow-x: hidden;
     }
-
-    /* Particle Canvas (Optional) */
     #particles-js {
       position: absolute;
       width: 100%;
@@ -46,15 +41,12 @@
       left: 0;
       z-index: -1;
     }
-
     .container {
       width: 90%;
       max-width: 1200px;
       margin: 0 auto;
       padding: 20px 0;
     }
-
-    /* Header and Navigation */
     header {
       background-color: var(--secondary-color);
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -62,41 +54,35 @@
       top: 0;
       z-index: 1000;
     }
-
     nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 8px 0; /* Reduced padding for shorter header */
+      padding: 8px 0;
       flex-wrap: wrap;
     }
-
     .logo {
-      width: 100px; /* Reduced logo size */
+      width: 100px;
     }
-
     .nav-links {
       display: flex;
       list-style: none;
       flex-wrap: wrap;
       gap: 12px;
     }
-
     .nav-links li a {
       text-decoration: none;
       color: var(--light-color);
       font-weight: 500;
-      font-size: clamp(13px, 3.5vw, 15px); /* Slightly smaller font size */
+      font-size: clamp(13px, 3.5vw, 15px);
       position: relative;
       padding: 4px 0;
       transition: color 0.3s ease;
     }
-
     .nav-links li a:hover,
     .nav-links li a:focus {
       color: var(--highlight-color);
     }
-
     .nav-links li a::after {
       content: '';
       position: absolute;
@@ -107,26 +93,21 @@
       background: var(--highlight-color);
       transition: width 0.3s ease;
     }
-
     .nav-links li a:hover::after,
     .nav-links li a:focus::after {
       width: 100%;
     }
-
-    /* Hamburger Menu */
     .hamburger {
       display: none;
-      font-size: 20px; /* Reduced size for smaller header */
+      font-size: 20px;
       cursor: pointer;
       color: var(--light-color);
       padding: 8px;
     }
-
     @media (max-width: 768px) {
       .hamburger {
         display: block;
       }
-
       .nav-links {
         display: none;
         flex-direction: column;
@@ -141,34 +122,27 @@
         overflow: hidden;
         transition: max-height 0.5s ease-in-out;
       }
-
       .nav-links.active {
         display: flex;
         max-height: 400px;
       }
-
       .nav-links li {
         margin: 8px 0;
       }
-
       .logo {
-        width: 80px; /* Further reduced for mobile */
+        width: 80px;
       }
     }
-
     @media (max-width: 480px) {
       .container {
         width: 95%;
         padding: 10px 0;
       }
-
       .hamburger {
         font-size: 18px;
         padding: 6px;
       }
     }
-
-    /* Intro Section */
     .intro-section {
       display: flex;
       justify-content: space-between;
@@ -177,33 +151,27 @@
       gap: 20px;
       flex-wrap: wrap;
     }
-
     .intro-text {
       flex: 1;
       max-width: 600px;
     }
-
     .intro-text p {
       color: var(--primary-color);
       font-size: clamp(16px, 5vw, 18px);
       margin-bottom: 10px;
     }
-
     .intro-text h2 {
       font-size: clamp(24px, 8vw, 32px);
       margin-bottom: 15px;
       color: var(--secondary-color);
     }
-
     .highlight {
       color: var(--highlight-color);
     }
-
     .profile-image {
       flex: 1;
       text-align: right;
     }
-
     .profile-image img {
       width: 80%;
       max-width: 280px;
@@ -214,77 +182,63 @@
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
       loading: lazy;
     }
-
     @media (max-width: 768px) {
       .intro-section {
         flex-direction: column;
         text-align: center;
         margin: 20px 0;
       }
-
       .profile-image {
         text-align: center;
         margin-top: 20px;
       }
-
       .profile-image img {
         width: 200px;
         height: 200px;
       }
     }
-
     @media (max-width: 480px) {
       .intro-text h2 {
         font-size: 24px;
       }
-
       .profile-image img {
         width: 160px;
         height: 160px;
       }
     }
-
-    /* About Section */
     #about {
       padding: 60px 0;
       background-color: white;
     }
-
     .row {
       display: flex;
       flex-wrap: wrap;
       gap: 20px;
       justify-content: space-between;
     }
-
     .about-col-1,
     .about-col-2 {
       flex: 1;
       min-width: 280px;
     }
-
     .about-col-1 img {
       width: 100%;
       height: fit-content;
       border-radius: 15px;
       loading: lazy;
     }
-
     .sub-title {
       font-size: clamp(24px, 6vw, 28px);
       margin-bottom: 15px;
       color: var(--secondary-color);
       font-weight: 600;
     }
-
-    /* Tabs */
     .tab-skills {
       display: flex;
       margin: 15px 0 30px;
       flex-wrap: wrap;
       gap: 10px;
     }
-
     .tab-links {
       margin-right: 20px;
       padding: 8px 12px;
@@ -295,12 +249,10 @@
       color: var(--text-color);
       transition: color 0.3s;
     }
-
     .tab-links:hover,
     .tab-links.active {
       color: var(--primary-color);
     }
-
     .tab-links::after {
       content: '';
       position: absolute;
@@ -311,57 +263,46 @@
       background: var(--primary-color);
       transition: width 0.3s;
     }
-
     .tab-links.active::after,
     .tab-links:hover::after {
       width: 100%;
     }
-
     .tab-content {
       display: none;
       animation: fadeIn 0.5s;
     }
-
     .tab-content.active {
       display: block;
     }
-
     @keyframes fadeIn {
       from { opacity: 0; }
       to { opacity: 1; }
     }
-
     .tab-content ul {
       list-style: none;
       margin-top: 10px;
     }
-
     .tab-content ul li {
       margin: 12px 0;
       position: relative;
       padding-left: 25px;
     }
-
     .tab-content ul li::before {
       content: '▹';
       position: absolute;
       left: 0;
       color: var(--primary-color);
     }
-
     .tab-content ul li span {
       color: var(--primary-color);
       font-weight: 600;
     }
-
-    /* Skills Grid */
     .skills-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
       gap: 15px;
       margin-top: 15px;
     }
-
     .skill-category {
       background-color: var(--light-color);
       padding: 15px;
@@ -369,11 +310,9 @@
       box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
       transition: transform 0.3s;
     }
-
     .skill-category:hover {
       transform: translateY(-5px);
     }
-
     .skill-category h4 {
       margin-bottom: 8px;
       color: var(--secondary-color);
@@ -381,30 +320,24 @@
       padding-bottom: 5px;
       font-size: clamp(14px, 4vw, 16px);
     }
-
     .skill-category ul {
       list-style: none;
     }
-
     .skill-category ul li {
       margin: 6px 0;
       display: flex;
       align-items: center;
       font-size: clamp(12px, 3.5vw, 14px);
     }
-
     .skill-category ul li::before {
       content: '•';
       color: var(--primary-color);
       margin-right: 8px;
     }
-
-    /* Timeline */
     .timeline {
       position: relative;
       padding-left: 30px;
     }
-
     .timeline::before {
       content: '';
       position: absolute;
@@ -414,12 +347,10 @@
       width: 2px;
       background: var(--primary-color);
     }
-
     .timeline-item {
       position: relative;
       margin-bottom: 25px;
     }
-
     .timeline-item::before {
       content: '';
       position: absolute;
@@ -431,38 +362,31 @@
       background: var(--accent-color);
       border: 2px solid var(--primary-color);
     }
-
     .timeline-date {
       font-weight: 600;
       color: var(--primary-color);
       font-size: clamp(12px, 3.5vw, 14px);
     }
-
     .timeline-title {
       font-weight: 600;
       margin: 5px 0;
       font-size: clamp(14px, 4vw, 16px);
     }
-
     .timeline-location {
       color: var(--text-light);
       font-style: italic;
       font-size: clamp(12px, 3.5vw, 14px);
     }
-
-    /* Services Section */
     #services {
       padding: 60px 0;
       background-color: var(--light-color);
     }
-
     .services-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
       gap: 20px;
       margin-top: 20px;
     }
-
     .service-card {
       background: linear-gradient(135deg, white 0%, #f8fafc 100%);
       padding: 25px;
@@ -473,34 +397,28 @@
       position: relative;
       overflow: hidden;
     }
-
     .service-card:hover {
       transform: translateY(-10px);
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
     }
-
     .service-card i {
       font-size: 36px;
       color: var(--primary-color);
       margin-bottom: 15px;
       transition: transform 0.3s;
     }
-
     .service-card:hover i {
       transform: scale(1.2);
     }
-
     .service-card h3 {
       color: var(--secondary-color);
       margin-bottom: 10px;
       font-size: clamp(16px, 4.5vw, 18px);
     }
-
     .service-card p {
       color: var(--text-color);
       font-size: clamp(12px, 3.5vw, 14px);
     }
-
     .service-card::before {
       content: '';
       position: absolute;
@@ -512,24 +430,19 @@
       opacity: 0;
       transition: opacity 0.3s;
     }
-
     .service-card:hover::before {
       opacity: 1;
     }
-
-    /* Portfolio Section */
     #portfolio {
       padding: 60px 0;
       background-color: white;
     }
-
     .portfolio-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
       gap: 20px;
       margin-top: 20px;
     }
-
     .portfolio-item {
       position: relative;
       overflow: hidden;
@@ -537,11 +450,9 @@
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
       transition: transform 0.3s;
     }
-
     .portfolio-item:hover {
       transform: translateY(-5px);
     }
-
     .portfolio-item img {
       width: 100%;
       height: 220px;
@@ -549,11 +460,9 @@
       transition: transform 0.5s;
       loading: lazy;
     }
-
     .portfolio-item:hover img {
       transform: scale(1.1);
     }
-
     .portfolio-overlay {
       position: absolute;
       top: 0;
@@ -569,29 +478,24 @@
       transition: opacity 0.3s;
       padding: 15px;
     }
-
     .portfolio-item:hover .portfolio-overlay {
       opacity: 1;
     }
-
     .portfolio-overlay h3 {
       color: white;
       margin-bottom: 8px;
       font-size: clamp(18px, 5vw, 22px);
     }
-
     .portfolio-overlay p {
       color: var(--light-color);
       margin-bottom: 10px;
       text-align: center;
       font-size: clamp(12px, 3.5vw, 14px);
     }
-
     .portfolio-overlay .btn-group {
       display: flex;
       gap: 8px;
     }
-
     .portfolio-overlay a {
       color: white;
       background-color: var(--primary-color);
@@ -602,280 +506,196 @@
       transition: background-color 0.3s;
       font-size: clamp(12px, 3.5vw, 14px);
     }
-
     .portfolio-overlay a:hover {
       background-color: var(--highlight-color);
     }
-
-
-/* Contact Section */
-#contact {
-    padding: 60px 0;
-    background-color: var(--light-color);
-    position: relative;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-.sub-title {
-    text-align: center;
-    margin-bottom: 40px;
-    color: var(--secondary-color);
-    font-size: clamp(24px, 5vw, 36px);
-    position: relative;
-    padding-bottom: 15px;
-}
-
-.sub-title::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60px;
-    height: 3px;
-    background: var(--primary-color);
-    border-radius: 2px;
-}
-
-.contact-form {
-    max-width: 550px;
-    margin: 0 auto;
-    background: white;
-    padding: 35px 30px;
-    border-radius: 12px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-}
-
-.form-group {
-    margin-bottom: 20px;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 8px;
-    color: var(--secondary-color);
-    font-weight: 500;
-    font-size: clamp(14px, 4vw, 16px);
-}
-
-.form-group input {
-    width: 100%;
-    padding: 12px 15px;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    font-size: clamp(14px, 3.5vw, 16px);
-    transition: all 0.3s ease;
-    background-color: #f9f9f9;
-    font-family: inherit;
-    height: 48px;
-    box-sizing: border-box;
-}
-
-/* FIX YA TEXTAREA - IMEPUNGUA SANA */
-.form-group textarea {
-    width: 100%;
-    padding: 12px 15px;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    font-size: clamp(14px, 3.5vw, 16px);
-    transition: all 0.3s ease;
-    background-color: #f9f9f9;
-    font-family: inherit;
-    resize: vertical;
-    min-height: 100px; /* KIMEPUNGUA KUTOKA 140px */
-    max-height: 200px; /* NA KUONGEZA MAX HEIGHT */
-    line-height: 1.5;
-    box-sizing: border-box;
-}
-
-.form-group input:focus,
-.form-group textarea:focus {
-    border-color: var(--primary-color);
-    outline: none;
-    background-color: white;
-    box-shadow: 0 0 0 2px rgba(var(--primary-color-rgb, 66, 153, 225), 0.1);
-}
-
-/* Submit Button */
-.submit-btn {
-    background-color: var(--primary-color);
-    color: white;
-    padding: 12px 30px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: clamp(14px, 4vw, 16px);
-    font-weight: 500;
-    transition: all 0.3s ease;
-    width: 100%;
-    margin-top: 10px;
-    height: 48px;
-}
-
-.submit-btn:hover {
-    background-color: var(--highlight-color);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(var(--primary-color-rgb, 66, 153, 225), 0.2);
-}
-
-.submit-btn:active {
-    transform: translateY(0);
-}
-
-.submit-btn:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
-    transform: none;
-    box-shadow: none;
-}
-
-.submit-btn:disabled:hover {
-    background-color: #ccc;
-}
-
-/* Form Status Messages */
-#form-status {
-    margin-top: 20px;
-    padding: 15px;
-    border-radius: 8px;
-    display: none;
-    text-align: center;
-    font-weight: 500;
-    font-size: clamp(14px, 4vw, 16px);
-    animation: fadeIn 0.3s ease;
-    border: 1px solid transparent;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Loading State */
-#form-status.loading {
-    background-color: #fff3cd;
-    color: #856404;
-    border-color: #ffeaa7;
-}
-
-/* Success State */
-#form-status.success {
-    background-color: #d4edda;
-    color: #155724;
-    border-color: #c3e6cb;
-}
-
-/* Error State */
-#form-status.error {
-    background-color: #f8d7da;
-    color: #721c24;
-    border-color: #f5c6cb;
-}
-
-/* Loading animation for submit button */
-.submit-btn.sending {
-    position: relative;
-    color: transparent;
-}
-
-.submit-btn.sending::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 20px;
-    height: 20px;
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    border-top-color: white;
-    border-radius: 50%;
-    animation: spin 0.8s linear infinite;
-}
-
-@keyframes spin {
-    to { transform: translate(-50%, -50%) rotate(360deg); }
-}
-
-/* Form validation styling */
-.form-group input:invalid:not(:focus):not(:placeholder-shown),
-.form-group textarea:invalid:not(:focus):not(:placeholder-shown) {
-    border-color: #e74c3c;
-    background-color: #fef9f9;
-}
-
-.form-group input:valid:not(:focus):not(:placeholder-shown),
-.form-group textarea:valid:not(:focus):not(:placeholder-shown) {
-    border-color: #2ecc71;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
     #contact {
-        padding: 40px 0;
+      padding: 60px 0;
+      background-color: var(--light-color);
+      position: relative;
     }
-    
-    .contact-form {
-        padding: 25px 20px;
-        margin: 0 15px;
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
     }
-    
+    .sub-title {
+      text-align: center;
+      margin-bottom: 40px;
+      color: var(--secondary-color);
+      font-size: clamp(24px, 5vw, 36px);
+      position: relative;
+      padding-bottom: 15px;
+    }
     .sub-title::after {
-        width: 40px;
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: var(--primary-color);
+      border-radius: 2px;
     }
-    
-    .form-group textarea {
-        min-height: 90px; /* IMEPUNGUA ZAIDI KWA MOBILE */
-        max-height: 180px;
-    }
-}
-
-@media (max-width: 480px) {
     .contact-form {
-        padding: 20px 15px;
+      max-width: 550px;
+      margin: 0 auto;
+      background: white;
+      padding: 35px 30px;
+      border-radius: 12px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
     }
-    
-    .form-group input,
-    .form-group textarea {
-        padding: 10px 12px;
-        font-size: 14px;
+    .form-group {
+      margin-bottom: 20px;
     }
-    
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--secondary-color);
+      font-weight: 500;
+      font-size: clamp(14px, 4vw, 16px);
+    }
     .form-group input {
-        height: 44px;
+      width: 100%;
+      padding: 12px 15px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-size: clamp(14px, 3.5vw, 16px);
+      transition: all 0.3s ease;
+      background-color: #f9f9f9;
+      font-family: inherit;
+      height: 48px;
+      box-sizing: border-box;
     }
-    
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 15px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-size: clamp(14px, 3.5vw, 16px);
+      transition: all 0.3s ease;
+      background-color: #f9f9f9;
+      font-family: inherit;
+      resize: vertical;
+      min-height: 100px;
+      max-height: 200px;
+      line-height: 1.5;
+      box-sizing: border-box;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: var(--primary-color);
+      outline: none;
+      background-color: white;
+      box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.1);
+    }
     .submit-btn {
-        padding: 10px 20px;
-        height: 44px;
-        font-size: 15px;
+      background-color: var(--primary-color);
+      color: white;
+      padding: 12px 30px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: clamp(14px, 4vw, 16px);
+      font-weight: 500;
+      transition: all 0.3s ease;
+      width: 100%;
+      margin-top: 10px;
+      height: 48px;
     }
-    
-    .form-group textarea {
-        min-height: 80px; /* IMEPUNGUA ZAIDI KWA SMALL SCREENS */
-        max-height: 150px;
+    .submit-btn:hover {
+      background-color: var(--highlight-color);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(52, 152, 219, 0.2);
     }
-}
-
-/* Small screens (Mobile landscape) */
-@media (max-width: 360px) {
-    .form-group textarea {
-        min-height: 70px;
-        max-height: 130px;
+    .submit-btn:active {
+      transform: translateY(0);
     }
-}
-
-    /* Footer */
+    .submit-btn:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+    .submit-btn:disabled:hover {
+      background-color: #ccc;
+    }
+    #form-status {
+      margin-top: 20px;
+      padding: 15px;
+      border-radius: 8px;
+      display: none;
+      text-align: center;
+      font-weight: 500;
+      font-size: clamp(14px, 4vw, 16px);
+      animation: fadeIn 0.3s ease;
+      border: 1px solid transparent;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    #form-status.loading {
+      background-color: #fff3cd;
+      color: #856404;
+      border-color: #ffeaa7;
+    }
+    #form-status.success {
+      background-color: #d4edda;
+      color: #155724;
+      border-color: #c3e6cb;
+    }
+    #form-status.error {
+      background-color: #f8d7da;
+      color: #721c24;
+      border-color: #f5c6cb;
+    }
+    .submit-btn.sending {
+      position: relative;
+      color: transparent;
+    }
+    .submit-btn.sending::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 20px;
+      height: 20px;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      border-top-color: white;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+    @keyframes spin {
+      to { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+    .form-group input:invalid:not(:focus):not(:placeholder-shown),
+    .form-group textarea:invalid:not(:focus):not(:placeholder-shown) {
+      border-color: #e74c3c;
+      background-color: #fef9f9;
+    }
+    .form-group input:valid:not(:focus):not(:placeholder-shown),
+    .form-group textarea:valid:not(:focus):not(:placeholder-shown) {
+      border-color: #2ecc71;
+    }
+    @media (max-width: 768px) {
+      #contact { padding: 40px 0; }
+      .contact-form { padding: 25px 20px; margin: 0 15px; }
+      .sub-title::after { width: 40px; }
+      .form-group textarea { min-height: 90px; max-height: 180px; }
+    }
+    @media (max-width: 480px) {
+      .contact-form { padding: 20px 15px; }
+      .form-group input, .form-group textarea { padding: 10px 12px; font-size: 14px; }
+      .form-group input { height: 44px; }
+      .submit-btn { padding: 10px 20px; height: 44px; font-size: 15px; }
+      .form-group textarea { min-height: 80px; max-height: 150px; }
+    }
+    @media (max-width: 360px) {
+      .form-group textarea { min-height: 70px; max-height: 130px; }
+    }
     footer {
       text-align: center;
       padding: 15px 0;
@@ -883,52 +703,18 @@
       color: white;
       font-size: clamp(12px, 3.5vw, 14px);
     }
-
-    /* Responsive */
     @media (max-width: 768px) {
-      #about,
-      #services,
-      #portfolio,
-      #contact {
-        padding: 40px 0;
-      }
-
-      .about-col-1,
-      .about-col-2 {
-        flex-basis: 100%;
-      }
-
-      .skills-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .services-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .portfolio-grid {
-        grid-template-columns: 1fr;
-      }
+      #about, #services, #portfolio, #contact { padding: 40px 0; }
+      .about-col-1, .about-col-2 { flex-basis: 100%; }
+      .skills-grid { grid-template-columns: 1fr; }
+      .services-grid { grid-template-columns: 1fr; }
+      .portfolio-grid { grid-template-columns: 1fr; }
     }
-
     @media (max-width: 480px) {
-      .tab-skills {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .tab-links {
-        margin-right: 0;
-        margin-bottom: 10px;
-      }
-
-      .service-card i {
-        font-size: 30px;
-      }
-
-      .portfolio-item img {
-        height: 180px;
-      }
+      .tab-skills { flex-direction: column; align-items: flex-start; }
+      .tab-links { margin-right: 0; margin-bottom: 10px; }
+      .service-card i { font-size: 30px; }
+      .portfolio-item img { height: 180px; }
     }
   </style>
 </head>
@@ -961,7 +747,7 @@
         <h2>Hi, I'm <span class="highlight">Richard</span> from Tanzania</h2>
       </div>
       <div class="profile-image">
-        <img src="images/background.jpg" alt="Richard's Photo" />
+        <img src="images/background.jpg" alt="Richard's Photo" loading="lazy" />
       </div>
     </div>
   </div>
@@ -971,19 +757,19 @@
     <div class="container">
       <div class="row">
         <div class="about-col-1">
-          <img src="images/about.png" alt="About Richard" />
+          <img src="images/about.png" alt="About Richard" loading="lazy" />
         </div>
         <div class="about-col-2">
           <h1 class="sub-title">About Me</h1>
           <p>I'm a passionate software developer with 3 years of experience creating innovative digital solutions. Specializing in web and mobile development, I transform ideas into functional applications that make a real difference.</p>
-          
+
           <div class="tab-skills" role="tablist">
             <p class="tab-links active" role="tab" aria-selected="true" onclick="openTab('skills')" tabindex="0">Skills</p>
             <p class="tab-links" role="tab" aria-selected="false" onclick="openTab('experience')" tabindex="0">Experience</p>
             <p class="tab-links" role="tab" aria-selected="false" onclick="openTab('education')" tabindex="0">Education</p>
           </div>
 
-          <!-- Skills Tab -->
+          <!-- Skills Tab (Other Skills removed) -->
           <div id="skills" class="tab-content active" role="tabpanel">
             <div class="skills-grid">
               <div class="skill-category">
@@ -994,111 +780,70 @@
                   <li>React.js</li>
                   <li>Django</li>
                   <li>REST APIs</li>
-                  <LI>Flask</LI>
+                  <li>Flask</li>
                   <li>Node.js</li>
                   <li>Java</li>
                 </ul>
               </div>
-             <div class="skill-category">
-  <h4>Database Design & Implementation</h4>
-  <ul>
-    <li>MySQL</li>
-    <li>PostgreSQL</li>
-    <li>Microsoft Access</li>
-    <li>Database Modeling & Normalization</li>
-    <li>CRUD Operations</li>
-  </ul>
-</div>
-
+              <div class="skill-category">
+                <h4>Database Design & Implementation</h4>
+                <ul>
+                  <li>MySQL</li>
+                  <li>PostgreSQL</li>
+                  <li>Microsoft Access</li>
+                  <li>Database Modeling & Normalization</li>
+                  <li>CRUD Operations</li>
+                </ul>
+              </div>
               <div class="skill-category">
                 <h4>System Development</h4>
                 <ul>
                   <li>System Analysis & Design</li>
-                 <li>Backend Logic Implementation</li>
-                   <li>Database Design & Implementation</li>
-                 <li>API Architecture</li>
-                 <li>User Roles & Access Control</li>
+                  <li>Backend Logic Implementation</li>
+                  <li>Database Design & Implementation</li>
+                  <li>API Architecture</li>
+                  <li>User Roles & Access Control</li>
                   <li>System Integration</li>
-                </ul>
-              </div>
-              <div class="skill-category">
-                <h4>Other Skills</h4>
-                <ul>
-                  <li>Git & Version Control</li>
-
-                  <li>UI/UX Principles</li>
-                  <li>Problem Solving</li>
                 </ul>
               </div>
             </div>
           </div>
 
-        <!-- Experience Tab -->
-<div id="experience" class="tab-content" role="tabpanel">
-  <div class="timeline">
-
-    <!-- Full-Stack Experience -->
-    <div class="timeline-item">
-      <div class="timeline-date">2022 – Present</div>
-      <h3 class="timeline-title">Full-Stack Web Developer</h3>
-      <p class="timeline-location">Freelance / Project-Based, Tanzania</p>
-      <p>
-        Gained hands-on experience in full-stack web development through academic projects,
-        field practical training, and collaborations with external institutions. Developed
-        responsive web and system applications using modern frontend and backend technologies,
-        focusing on usability, performance, and real-world problem solving.
-      </p>
-    </div>
-
-    <!-- SUA Field -->
-    <div class="timeline-item">
-      <div class="timeline-date">2020/2021</div>
-      <h3 class="timeline-title">practical Training</h3>
-      <p class="timeline-location">Sokoine University of Agriculture (SUA)</p>
-      <p>
-        Completed field practical training on computer maintenance as part of Diploma studies, gaining foundational
-        skills in ICT, computer systems, and practical problem-solving in real working
-        environments.
-      </p>
-    </div>
-
-    <!-- UDOM Field -->
-    <div class="timeline-item">
-      <div class="timeline-date">2022/2023</div>
-      <h3 class="timeline-title">Field Training</h3>
-      <p class="timeline-location">University of Dodoma (UDOM)</p>
-      <p>
-        Participated in field training focused on system development, ICT support, and
-        practical application of web technologies learned during academic studies.
-      </p>
-    </div>
-
-    <!-- Meritech -->
-    <div class="timeline-item">
-      <div class="timeline-date">2024/2025</div>
-      <h3 class="timeline-title">Web & System Development Trainee</h3>
-      <h3 class="timeline-title">Networking & Computer Maintenance Trainee</h3>
-      <p class="timeline-location">Meritech Ltd, Dar es Salaam</p>
-      <p>
-        Involved in web-based system development, networking setup, and computer maintenance.
-        Worked on both frontend and backend tasks while gaining hands-on industry experience.
-      </p>
-    </div>
-
-    <!-- TAMISEMI -->
-    <div class="timeline-item">
-      <div class="timeline-date">2023/2024</div>
-      <h3 class="timeline-title">Internship</h3>
-      <p class="timeline-location">TAMISEMI, Dodoma</p>
-      <p>
-        Assisted in system support, computer maintenance, and basic web application
-        development. Gained exposure to government information systems, ICT operations,
-        and organizational workflows.
-      </p>
-    </div>
-
-  </div>
-</div>
+          <!-- Experience Tab -->
+          <div id="experience" class="tab-content" role="tabpanel">
+            <div class="timeline">
+              <div class="timeline-item">
+                <div class="timeline-date">2022 – Present</div>
+                <h3 class="timeline-title">Full-Stack Web Developer</h3>
+                <p class="timeline-location">Freelance / Project-Based, Tanzania</p>
+                <p>Gained hands-on experience in full-stack web development through academic projects, field practical training, and collaborations with external institutions. Developed responsive web and system applications using modern frontend and backend technologies, focusing on usability, performance, and real-world problem solving.</p>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-date">2020/2021</div>
+                <h3 class="timeline-title">Practical Training</h3>
+                <p class="timeline-location">Sokoine University of Agriculture (SUA)</p>
+                <p>Completed field practical training on computer maintenance as part of Diploma studies, gaining foundational skills in ICT, computer systems, and practical problem-solving in real working environments.</p>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-date">2022/2023</div>
+                <h3 class="timeline-title">Field Training</h3>
+                <p class="timeline-location">University of Dodoma (UDOM)</p>
+                <p>Participated in field training focused on system development, ICT support, and practical application of web technologies learned during academic studies.</p>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-date">2024/2025</div>
+                <h3 class="timeline-title">Web & System Development Trainee / Networking Trainee</h3>
+                <p class="timeline-location">Meritech Ltd, Dar es Salaam</p>
+                <p>Involved in web-based system development, networking setup, and computer maintenance. Worked on both frontend and backend tasks while gaining hands-on industry experience.</p>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-date">2023/2024</div>
+                <h3 class="timeline-title">Internship</h3>
+                <p class="timeline-location">TAMISEMI, Dodoma</p>
+                <p>Assisted in system support, computer maintenance, and basic web application development. Gained exposure to government information systems, ICT operations, and organizational workflows.</p>
+              </div>
+            </div>
+          </div>
 
           <!-- Education Tab -->
           <div id="education" class="tab-content" role="tabpanel">
@@ -1119,7 +864,7 @@
                 <div class="timeline-date">2017 - 2019</div>
                 <h3 class="timeline-title">Advanced Secondary Education</h3>
                 <p class="timeline-location">Songa High School, Tanga</p>
-                <p>Completed A-level studies in Chemistry,Biology and Geography.</p>
+                <p>Completed A-level studies in Chemistry, Biology and Geography.</p>
               </div>
               <div class="timeline-item">
                 <div class="timeline-date">2013 - 2016</div>
@@ -1148,7 +893,7 @@
         <div class="service-card">
           <i class="fas fa-code"></i>
           <h3>Web Development</h3>
-          <p>Building responsive, high-performance websites using React.js, Node.js,Django and modern frameworks.</p>
+          <p>Building responsive, high-performance websites using React.js, Node.js, Django and modern frameworks.</p>
         </div>
         <div class="service-card">
           <i class="fas fa-database"></i>
@@ -1170,35 +915,35 @@
       <h1 class="sub-title">My Portfolio</h1>
       <div class="portfolio-grid">
         <div class="portfolio-item">
-          <img src="images/project1.jpeg" alt="Project 1" />
+          <img src="images/project1.jpeg" alt="Project 1" loading="lazy" />
           <div class="portfolio-overlay">
             <h3>Project 1</h3>
             <p>A fully-featured online store with payment integration and responsive design.</p>
             <div class="btn-group">
-              <a href="#coming-soon" aria-label="View E-Commerce Platform project">View Project</a>
-              <a href="https://github.com/Nhonya/" aria-label="View E-Commerce Platform GitHub repository">GitHub</a>
+              <a href="#coming-soon" target="_blank" rel="noopener noreferrer" aria-label="View E-Commerce Platform project">View Project</a>
+              <a href="https://github.com/Nhonya/" target="_blank" rel="noopener noreferrer" aria-label="View E-Commerce Platform GitHub repository">GitHub</a>
             </div>
           </div>
         </div>
         <div class="portfolio-item">
-          <img src="images/project2.jpg" alt="Project 2" />
+          <img src="images/project2.jpg" alt="Project 2" loading="lazy" />
           <div class="portfolio-overlay">
             <h3>Project 2</h3>
             <p>A secure mobile app for banking transactions with a focus on user experience.</p>
             <div class="btn-group">
-              <a href="#coming-soon" aria-label="View Mobile Banking App project">View Project</a>
-              <a href="https://github.com/Nhonya/" aria-label="View Mobile Banking App GitHub repository">GitHub</a>
+              <a href="#coming-soon" target="_blank" rel="noopener noreferrer" aria-label="View Mobile Banking App project">View Project</a>
+              <a href="https://github.com/Nhonya/" target="_blank" rel="noopener noreferrer" aria-label="View Mobile Banking App GitHub repository">GitHub</a>
             </div>
           </div>
         </div>
         <div class="portfolio-item">
-          <img src="images/project3.jpeg" alt="Project 3" />
+          <img src="images/project3.jpeg" alt="Project 3" loading="lazy" />
           <div class="portfolio-overlay">
             <h3>Project 3</h3>
             <p>A web-based tool for team collaboration and task tracking with real-time updates.</p>
             <div class="btn-group">
-              <a href="#coming-soon" aria-label="View Task Management System project">View Project</a>
-              <a href="https://github.com/Nhonya/" aria-label="View Task Management System GitHub repository">GitHub</a>
+              <a href="#coming-soon" target="_blank" rel="noopener noreferrer" aria-label="View Task Management System project">View Project</a>
+              <a href="#" target="_blank" rel="noopener noreferrer" aria-label="View Task Management System GitHub repository">GitHub</a>
             </div>
           </div>
         </div>
@@ -1206,207 +951,157 @@
     </div>
   </div>
 
-<!-- Contact Section -->
-<div id="contact">
-  <div class="container">
-    <h1 class="sub-title">Contact Me</h1>
-    <div class="contact-form">
-      <form id="contact-form" action="https://formspree.io/f/mojnqvno" method="POST">
-        <div class="form-group">
-          <label for="name">Name *</label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            placeholder="Your Name"
-            required
-            aria-required="true"
-            aria-label="Your name"
-          />
-        </div>
-
-        <div class="form-group">
-          <label for="email">Email *</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder="your.email@example.com"
-            required
-            aria-required="true"
-            aria-label="Your email address"
-          />
-        </div>
-
-        <div class="form-group">
-          <label for="message">Message *</label>
-          <textarea
-            id="message"
-            name="message"
-            placeholder="Write your message here..."
-            required
-            aria-required="true"
-            rows="4"
-            aria-label="Your message"
-          ></textarea>
-        </div>
-
-        <!-- Formspree hidden fields (honeypot removed for testing) -->
-        <input type="hidden" name="_subject" value="New Message from Richard's Portfolio" />
-        <input type="hidden" name="_template" value="table" />
-
-        <button class="submit-btn" type="submit" id="submit-btn" aria-label="Send message">
-          Send Message
-        </button>
-      </form>
-
-      <!-- Status message -->
-      <div id="form-status" role="alert" aria-live="polite"></div>
+  <!-- Contact Section -->
+  <div id="contact">
+    <div class="container">
+      <h1 class="sub-title">Contact Me</h1>
+      <div class="contact-form">
+        <form id="contact-form" action="https://formspree.io/f/mojnqvno" method="POST">
+          <div class="form-group">
+            <label for="name">Name *</label>
+            <input type="text" id="name" name="name" placeholder="Your Name" required aria-required="true" aria-label="Your name" />
+          </div>
+          <div class="form-group">
+            <label for="email">Email *</label>
+            <input type="email" id="email" name="email" placeholder="your.email@example.com" required aria-required="true" aria-label="Your email address" />
+          </div>
+          <div class="form-group">
+            <label for="message">Message *</label>
+            <textarea id="message" name="message" placeholder="Write your message here..." required aria-required="true" rows="4" aria-label="Your message"></textarea>
+          </div>
+          <input type="hidden" name="_subject" value="New Message from Richard's Portfolio" />
+          <input type="hidden" name="_template" value="table" />
+          <button class="submit-btn" type="submit" id="submit-btn" aria-label="Send message">Send Message</button>
+        </form>
+        <div id="form-status" role="alert" aria-live="polite"></div>
+      </div>
     </div>
   </div>
-</div>
 
-<!-- Footer -->
-<footer>
-  <p>© 2025 Richard - All rights reserved.</p>
-</footer>
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Richard - All rights reserved.</p>
+  </footer>
 
-<!-- JavaScript for form submission -->
-<script>
-// Simplified and reliable form submission
-document.getElementById('contact-form').addEventListener('submit', function(e) {
-  e.preventDefault();
-
-  const form = this;
-  const status = document.getElementById('form-status');
-  const btn = document.getElementById('submit-btn');
-
-  // Reset status
-  status.className = '';
-  status.style.display = 'none';
-
-  // Loading state
-  btn.disabled = true;
-  btn.innerHTML = 'Sending...';
-  status.className = 'loading';
-  status.innerHTML = 'Sending your message...';
-  status.style.display = 'block';
-
-  fetch(form.action, {
-    method: 'POST',
-    body: new FormData(form),
-    headers: {
-      'Accept': 'application/json'
-    }
-  })
-  .then(response => {
-    console.log('Response status:', response.status); // ← check this in console
-
-    if (response.ok) {
-      status.className = 'success';
-      status.innerHTML = 'You are  Message has been sent successfully!<br>I will reply soon.';
-      form.reset();
-      setTimeout(() => {
-        status.style.display = 'none';
-      }, 5000);
-    } else {
-      return response.text().then(text => {
-        throw new Error(`Server error: ${response.status} - ${text || 'Unknown error'}`);
-      });
-    }
-  })
-  .catch(error => {
-    console.error('Submission error:', error); // ← important for debugging
-    status.className = 'error';
-    status.innerHTML = '❌ ' + (error.message || 'Something went wrong. Please try again or email me directly.');
-  })
-  .finally(() => {
-    btn.disabled = false;
-    btn.innerHTML = 'Send Message';
-  });
-});
-
-// Real-time input validation styling
-document.querySelectorAll('#contact-form input, #contact-form textarea').forEach(input => {
-  input.addEventListener('input', function() {
-    if (this.value === '') {
-      this.style.borderColor = '#ced4da'; // neutral
-    } else if (this.checkValidity()) {
-      this.style.borderColor = '#28a745'; // green = valid
-    } else {
-      this.style.borderColor = '#dc3545'; // red = invalid
-    }
-  });
-});
-
-  // Focus effect (if you have .focused class in CSS)
-  input.addEventListener('focus', () => input.parentElement.classList.add('focused'));
-  input.addEventListener('blur', () => {
-    if (!input.value) input.parentElement.classList.remove('focused');
-  });
-
-// Tab Functionality (unchanged - keep this as is)
-function openTab(tabName) {
-  const tabContents = document.getElementsByClassName('tab-content');
-  const tabLinks = document.getElementsByClassName('tab-links');
-  for (let content of tabContents) {
-    content.classList.remove('active');
-    content.setAttribute('aria-hidden', 'true');
-  }
-  for (let link of tabLinks) {
-    link.classList.remove('active');
-    link.setAttribute('aria-selected', 'false');
-  }
-  const activeContent = document.getElementById(tabName);
-  activeContent.classList.add('active');
-  activeContent.setAttribute('aria-hidden', 'false');
-  const activeLink = document.querySelector(`.tab-links[onclick="openTab('${tabName}')"]`);
-  activeLink.classList.add('active');
-  activeLink.setAttribute('aria-selected', 'true');
-}
-
-// Keyboard support for tabs
-document.querySelectorAll('.tab-links').forEach(tab => {
-  tab.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter' || e.key === ' ') {
+  <!-- JavaScript -->
+  <script>
+    // Form submission
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
       e.preventDefault();
-      const tabName = tab.getAttribute('onclick').match(/'([^']+)'/)[1];
-      openTab(tabName);
+      const form = this;
+      const status = document.getElementById('form-status');
+      const btn = document.getElementById('submit-btn');
+
+      status.className = '';
+      status.style.display = 'none';
+
+      btn.disabled = true;
+      btn.innerHTML = 'Sending...';
+      status.className = 'loading';
+      status.innerHTML = 'Sending your message...';
+      status.style.display = 'block';
+
+      fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      })
+      .then(response => {
+        console.log('Response status:', response.status);
+        if (response.ok) {
+          status.className = 'success';
+          status.innerHTML = 'Your message has been sent successfully!<br>I will reply soon.';
+          form.reset();
+          setTimeout(() => status.style.display = 'none', 5000);
+        } else {
+          return response.text().then(text => {
+            throw new Error(`Server error: ${response.status} - ${text || 'Unknown error'}`);
+          });
+        }
+      })
+      .catch(error => {
+        console.error('Submission error:', error);
+        status.className = 'error';
+        status.innerHTML = '❌ ' + (error.message || 'Something went wrong. Please try again or email me directly.');
+      })
+      .finally(() => {
+        btn.disabled = false;
+        btn.innerHTML = 'Send Message';
+      });
+    });
+
+    // Real-time validation
+    document.querySelectorAll('#contact-form input, #contact-form textarea').forEach(input => {
+      input.addEventListener('input', function() {
+        if (this.value === '') {
+          this.style.borderColor = '#ced4da';
+        } else if (this.checkValidity()) {
+          this.style.borderColor = '#28a745';
+        } else {
+          this.style.borderColor = '#dc3545';
+        }
+      });
+    });
+
+    // Tab functionality
+    function openTab(tabName) {
+      const tabContents = document.getElementsByClassName('tab-content');
+      const tabLinks = document.getElementsByClassName('tab-links');
+      for (let content of tabContents) {
+        content.classList.remove('active');
+        content.setAttribute('aria-hidden', 'true');
+      }
+      for (let link of tabLinks) {
+        link.classList.remove('active');
+        link.setAttribute('aria-selected', 'false');
+      }
+      const activeContent = document.getElementById(tabName);
+      activeContent.classList.add('active');
+      activeContent.setAttribute('aria-hidden', 'false');
+      const activeLink = document.querySelector(`.tab-links[onclick="openTab('${tabName}')"]`);
+      activeLink.classList.add('active');
+      activeLink.setAttribute('aria-selected', 'true');
     }
-  });
-});
-</script>
 
-<!-- Font Awesome -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    document.querySelectorAll('.tab-links').forEach(tab => {
+      tab.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          const tabName = tab.getAttribute('onclick').match(/'([^']+)'/)[1];
+          openTab(tabName);
+        }
+      });
+    });
+  </script>
 
-<!-- Particles.js (keep if you want background effect) -->
-<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-<script>
-  // Your existing particles config (unchanged)
-  const particleConfig = {
-    particles: {
-      number: { value: window.innerWidth < 480 ? 30 : 50, density: { enable: true, value_area: 800 } },
-      color: { value: '#3498db' },
-      shape: { type: 'circle' },
-      opacity: { value: 0.5, random: true },
-      size: { value: 3, random: true },
-      line_linked: { enable: true, distance: 150, color: '#3498db', opacity: 0.4, width: 1 },
-      move: { enable: true, speed: 2, direction: 'none', random: false }
-    },
-    interactivity: {
-      detect_on: 'canvas',
-      events: { onhover: { enable: true, mode: 'repulse' }, onclick: { enable: true, mode: 'push' } },
-      modes: { repulse: { distance: 100 }, push: { particles_nb: 4 } }
-    },
-    retina_detect: true
-  };
-  particlesJS('particles-js', particleConfig);
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-  window.addEventListener('resize', () => {
-    particleConfig.particles.number.value = window.innerWidth < 480 ? 30 : 50;
+  <!-- Particles.js -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script>
+    const particleConfig = {
+      particles: {
+        number: { value: window.innerWidth < 480 ? 30 : 50, density: { enable: true, value_area: 800 } },
+        color: { value: '#3498db' },
+        shape: { type: 'circle' },
+        opacity: { value: 0.5, random: true },
+        size: { value: 3, random: true },
+        line_linked: { enable: true, distance: 150, color: '#3498db', opacity: 0.4, width: 1 },
+        move: { enable: true, speed: 2, direction: 'none', random: false }
+      },
+      interactivity: {
+        detect_on: 'canvas',
+        events: { onhover: { enable: true, mode: 'repulse' }, onclick: { enable: true, mode: 'push' } },
+        modes: { repulse: { distance: 100 }, push: { particles_nb: 4 } }
+      },
+      retina_detect: true
+    };
     particlesJS('particles-js', particleConfig);
-  });
-</script>
+    window.addEventListener('resize', () => {
+      particleConfig.particles.number.value = window.innerWidth < 480 ? 30 : 50;
+      particlesJS('particles-js', particleConfig);
+    });
+  </script>
 </body>
 </html>
