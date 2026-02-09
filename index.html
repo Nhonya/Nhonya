@@ -1222,10 +1222,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const submitBtn = document.getElementById('submit-btn');    // submit button
 
   // Determine backend URL based on environment (local or live)
-  const API_URL = 
-     location.hostname === 'localhost' || location.hostname === '127.0.0.1'
-      ? 'http://localhost:3000'               // local backend for testing
-      : 'https://portfolio-backend-api-ruddy.vercel.app/';   // live backend URL (update this when deployed)
+  const API_URL =
+  location.hostname === 'localhost' || location.hostname === '127.0.0.1'
+    ? 'http://localhost:3000'
+    : 'https://portfolio-backend-api-ruddy.vercel.app/api';
+ // live backend URL (update this when deployed)
 
   // Listen for form submission
   contactForm.addEventListener('submit', async (e) => {
