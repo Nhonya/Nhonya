@@ -1210,7 +1210,6 @@
   <footer>
     <p>© 2025 Richard - All rights reserved.</p>
   </footer>
-
 <!-- EmailJS Library -->
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 
@@ -1218,7 +1217,7 @@
 document.addEventListener('DOMContentLoaded', function () {
 
   // 🔑 Initialize EmailJS
-  emailjs.init("xXCR1_BNBFRH383J2"); // <-- Weka Public Key yako hapa
+  emailjs.init("xXCR1_BNBFRH383J2"); // Public Key 
 
   const contactForm = document.getElementById('contact-form');
   const statusDiv = document.getElementById('form-status');
@@ -1237,21 +1236,33 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Send form using EmailJS
     emailjs.sendForm(
-      "service_ywq9mle",      // ✅ Service ID yako
-      "template_ob1ipyc",     // <-- Weka Template ID yako hapa
+      "service_ywq9mle",      // Service ID 
+      "template_ob1ipyc",     // Template ID 
       this
     )
     .then(function () {
+      // Success message
       statusDiv.className = 'success';
       statusDiv.textContent = 'Message sent successfully!';
       statusDiv.style.display = 'block';
       contactForm.reset();
+
+      // Hide success message after 5 seconds
+      setTimeout(function() {
+        statusDiv.style.display = 'none';
+      }, 5000); 
     })
     .catch(function (error) {
+      // Error message
       statusDiv.className = 'error';
       statusDiv.textContent = 'Failed to send message. Please try again.';
       statusDiv.style.display = 'block';
       console.error('EmailJS Error:', error);
+
+      // Hide error  message disappear after 5 seconds
+      setTimeout(function() {
+        statusDiv.style.display = 'none';
+      }, 5000); 
     })
     .finally(function () {
       submitBtn.disabled = false;
