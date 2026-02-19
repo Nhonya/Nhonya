@@ -1211,22 +1211,23 @@
     <p>© 2025 Richard - All rights reserved.</p>
   </footer>
 
-  <!-- JavaScript -->
-  <script>
-// Wait for the DOM to fully load
-document.addEventListener('DOMContentLoaded', () => {
+<!-- EmailJS Library -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+
+  // 🔑 Initialize EmailJS
+  emailjs.init("xXCR1_BNBFRH383J2"); // <-- Weka Public Key yako hapa
+
   const contactForm = document.getElementById('contact-form');
   const statusDiv = document.getElementById('form-status');
   const submitBtn = document.getElementById('submit-btn');
 
-  // Production backend
-  const API_URL = 'https://richard-portfolio-axvi.onrender.com';
-
-  if (!contactForm) return; // safety check
-
-  contactForm.addEventListener('submit', async (e) => {
+  contactForm.addEventListener('submit', function (e) {
     e.preventDefault();
 
+    // Reset status
     statusDiv.style.display = 'none';
     statusDiv.className = '';
     statusDiv.textContent = '';
@@ -1234,49 +1235,31 @@ document.addEventListener('DOMContentLoaded', () => {
     submitBtn.disabled = true;
     submitBtn.textContent = 'Sending...';
 
-    const formData = {
-      name: document.getElementById('name').value.trim(),
-      email: document.getElementById('email').value.trim(),
-      message: document.getElementById('message').value.trim(),
-    };
-
-    try {
-      const response = await fetch(`${API_URL}/contact`, {
-        method: 'POST',
-        mode: 'cors',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify(formData),
-      });
-
-      let data;
-      try { data = await response.json(); } 
-      catch { throw new Error('Server did not return JSON'); }
-
-      if (!response.ok) throw new Error(data.error || 'Failed to send email');
-
+    // Send form using EmailJS
+    emailjs.sendForm(
+      "service_ywq9mle",      // ✅ Service ID yako
+      "template_ob1ipyc",     // <-- Weka Template ID yako hapa
+      this
+    )
+    .then(function () {
       statusDiv.className = 'success';
-      statusDiv.textContent = data.message || 'Your message sent successfully!';
+      statusDiv.textContent = 'Message sent successfully!';
       statusDiv.style.display = 'block';
-
-      setTimeout(() => { statusDiv.style.display = 'none'; }, 5000);
       contactForm.reset();
-
-    } catch (err) {
-      console.error('Contact form error:', err);
+    })
+    .catch(function (error) {
       statusDiv.className = 'error';
-      statusDiv.innerHTML = `<strong>Error:</strong> ${err.message}<br>Please try again later.`;
+      statusDiv.textContent = 'Failed to send message. Please try again.';
       statusDiv.style.display = 'block';
-    } finally {
+      console.error('EmailJS Error:', error);
+    })
+    .finally(function () {
       submitBtn.disabled = false;
       submitBtn.textContent = 'Send Message';
-    }
+    });
+
   });
 });
-
-
 
     // Tab functionality
     function openTab(tabName) {
